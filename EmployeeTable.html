@@ -1,0 +1,14 @@
+﻿<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="employee in employees | limitTo:rowLimit" ng-init="parentIndex=$index">
+            <td>{{employee.firstName | uppercase}}</td>
+            <td>{{employee.lastName | lowercase}}</td>
+        </tr>
+    </tbody>
+</table>

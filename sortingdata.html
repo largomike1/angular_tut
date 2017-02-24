@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <title>Angular Tutorial</title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="scripts/app_sorting.js"></script>
+</head>
+<body>
+    <div ng-controller="myController" class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                To Sort Data in Angular use orderBy filter
+
+                orderBy_expression | orderBy: expression : reverse 
+                OR
+                orderBy: +lastName  (use + or -) to choose ascending or descending<br/><br/>
+                Sort Order 
+                <select ng-model="sortColumn">
+                    <option value="lastName">Last Name ASC</option>
+                    <option value="birthday">Birthday ASC</option>
+                    <option value="-salary">Salary Desc</option>
+                </select><br/>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                            <td>Birthday</td>
+                            <td>Salary $</td>
+                            <td>Salary</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="employee in employees |orderBy: sortColumn" ng-init="parentIndex=$index">
+                            <td>{{employee.firstName | uppercase}}</td>
+                            <td>{{employee.lastName | lowercase}}</td>
+                            <td>{{employee.birthday | date:"MM/dd/yyyy"}}</td>
+                            <td>{{employee.salary | currency}}</td>
+                            <td>{{employee.salary | number:2}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <title>Angular Tutorial</title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="scripts/app_filtering.js"></script>
+
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+    <div ng-controller="myController" class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                To Filter data <br/><br/>
+
+
+                Filter: 
+                <input type="text" ng-model="searchText.firstName" placeholder="Search First Name " />
+
+                Using a function for filtering across first or last name:<br/>
+                <input type="text" ng-model="firstLastText" placeholder="Search First or Last Name " />
+
+                Exact Match: <input type="checkbox" ng-model="exactMatch" />
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td><a href="#" ng-click="sortData('firstName')">First Name <span ng-class="getSortClass('firstName')"></span></a></td>
+                            <td><a href="#" ng-click="sortData('lastName')">Last Name <span ng-class="getSortClass('lastName')"></span></a></td>
+                            <td><a href="#" ng-click="sortData('birthday')">Birthday<span ng-class="getSortClass('birthday')"></span></a></td>
+                            <td><a href="#" ng-click="sortData('salary')">Salary<span ng-class="getSortClass('salary')"></span></a></td>
+                            <td>Other Salary</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="employee in employees |orderBy: sortColumn: reverseSort | filter:searchText:exactMatch" ng-init="parentIndex=$index">
+                            <td>{{employee.firstName }}</td>
+                            <td>{{employee.lastName }}</td>
+                            <td>{{employee.birthday | date:"MM/dd/yyyy"}}</td>
+                            <td>{{employee.salary | currency}}</td>
+                            <td>{{employee.salary | number:2}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <br/><br/>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td><a href="#" ng-click="sortData('firstName')">First Name <span ng-class="getSortClass('firstName')"></span></a></td>
+                            <td><a href="#" ng-click="sortData('lastName')">Last Name <span ng-class="getSortClass('lastName')"></span></a></td>
+                            <td><a href="#" ng-click="sortData('birthday')">Birthday<span ng-class="getSortClass('birthday')"></span></a></td>
+                            <td><a href="#" ng-click="sortData('salary')">Salary<span ng-class="getSortClass('salary')"></span></a></td>
+                            <td>Other Salary</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="employee in employees |orderBy: sortColumn: reverseSort | filter:searchFirstLast" ng-init="parentIndex=$index">
+                            <td>{{employee.firstName }}</td>
+                            <td>{{employee.lastName }}</td>
+                            <td>{{employee.birthday | date:"MM/dd/yyyy"}}</td>
+                            <td>{{employee.salary | currency}}</td>
+                            <td>{{employee.salary | number:2}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</body>
+</html>

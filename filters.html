@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <title>Angular Tutorial</title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/angular/angular.js"></script>
+
+    <script type="text/javascript">
+        document.write('<scr' + 'ipt src="scripts/app_filters.js?' + Math.random() + '" type="text/javascript"></scr' + 'ipt>');
+    </script>
+
+</head>
+<body>
+    <div ng-controller="myController" class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                Filters in Angular<br />
+                lowercase<br />
+                uppercase<br />
+                number<br />
+                currency<br />
+                date<br />
+                limitTo:(rows to display):(start row)
+
+                <img src="images/datefilters.png" />
+
+                <br/><br/>Rows to display: <input type="number" step="1" min="0" max="5" ng-model="rowLimit" /><br/><br/>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                            <td>Birthday</td>
+                            <td>Salary $</td>
+                            <td>Salary</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="employee in employees | limitTo:rowLimit" ng-init="parentIndex=$index">
+                            <td>{{employee.firstName | uppercase}}</td>
+                            <td>{{employee.lastName | lowercase}}</td>
+                            <td>{{employee.birthday | date:"MM/dd/yyyy"}}</td>
+                            <td>{{employee.salary | currency}}</td>
+                            <td>{{employee.salary | number:2}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</body>
+</html>

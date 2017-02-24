@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <title>Example of including html with ng-include</title>
+	<meta charset="utf-8" />
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body ng-controller="myController">
+    Select view:
+    <select ng-model="employeeView" >
+         <option value="EmployeeTable.html" >Table View</option>
+        <option value="EmployeeList.html">List View</option>
+    </select>
+    <br/><br/>
+    <div ng-include="employeeView"></div>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+</body>
+</html>

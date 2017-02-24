@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <title>Angular Tutorial</title>
+	<meta charset="utf-8" />
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="scripts/app.js"></script>
+</head>
+<body >
+    <div ng-controller="myController" class="container">
+        <div class="row">
+            <div class="col-sm-12">
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                            <td>Gender</td>
+                            <td>Hobbies</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="employee in employees" ng-init="parentIndex=$index">
+                            <td>{{employee.firstName}} - Index = {{$index}}</td>
+                            <td>{{employee.lastName}}</td>
+                            <td>{{employee.gender}}</td>
+                            <td>
+                                <div ng-repeat="hobby in employee.hobbies">{{hobby.name}} Parent Index={{parentIndex}}, -Index = {{$index}}</div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</body>
+</html>
