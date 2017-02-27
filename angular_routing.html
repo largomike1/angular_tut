@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <title>Angular Tutorial</title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular/angular-route.min.js"></script>
+    <script src="scripts/routingExample.js"></script>
+    <link href="styles/angular_routing_styles.css" rel="stylesheet" />
+
+</head>
+<body>
+    <table style="font-family: Arial">
+        <tr>
+            <td colspan="2" class="header">
+                <h1>
+                    WebSite Header
+                </h1>
+            </td>
+        </tr>
+        <tr>
+            <td class="leftMenu">
+                <a href="#/home">Home</a>
+                <a href="#/courses">Courses</a>
+                <a href="#/students">Students</a>
+            </td>
+            <td class="mainContent">
+                <ng-view></ng-view>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="footer">
+                <b>Website Footer</b>
+            </td>
+        </tr>
+    </table>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</body>
+</html>
