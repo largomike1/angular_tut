@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <title>Example of using Controller as syntax</title>
+	<meta charset="utf-8" />
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="scripts/controllerAs.js"></script>
+</head>
+<body>
+    Instead of using $scope in the controller, use the "controller as" syntax like this:<br/>
+    <div ng-controller="myController as myCtrl">
+        {{myCtrl.message}}
+    </div>
+</body>
+</html>

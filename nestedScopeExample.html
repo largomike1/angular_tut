@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html ng-app="Demo">
+<head>
+    <title>Angular Tutorial</title>
+    <meta charset="utf-8" />
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="scripts/nestedScopeExample.js"></script>
+</head>
+<body>
+    <div ng-controller="countryController as countryCtrl">
+        {{countryCtrl.name}}
+        <div ng-controller="stateController as stateCtrl">
+            {{countryCtrl.name}} - {{stateCtrl.name}}
+            <div ng-controller="cityController as cityCtrl">
+                {{countryCtrl.name}} - {{stateCtrl.name}} - {{cityCtrl.name}}
+            </div>
+        </div>
+    </div>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+</body>
+</html>
