@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <title>Angular UI Routing Tutorial</title>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <script src="/node_modules/angular/angular.js"></script>
+    <!-- step 1 to use UI Router is next line-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+    <script src="scripts/UIroutingExample.js"></script>
+    <link href="styles/angular_routing_styles.css" rel="stylesheet" />
+</head>
+<body>
+    <table style="font-family: Arial">
+        <tr>
+            <td colspan="2" class="header">
+                <h1>
+                    Angular UI Routing Tutorial
+                </h1>
+            </td>
+        </tr>
+        <tr>
+            <td class="leftMenu">
+                <a ui-sref="home" ui-sref-active="activeState">Home</a>
+                <a ui-sref="courses" ui-sref-active="activeState">Courses</a>
+                <a ui-sref="studentParent.students" ui-sref-active="activeState">Students</a> 
+            </td>
+            <td class="mainContent">
+                <!-- step 2 to use UI Router is next line-->
+                <ui-view></ui-view>
+                <!-- step 3 to use UI Router is in UIroutingExample.js-->
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="footer">
+                <b>Website Footer</b>
+            </td>
+        </tr>
+    </table>
+
+
+
+</body>
+</html>

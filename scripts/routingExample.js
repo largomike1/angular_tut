@@ -84,19 +84,19 @@ var app = angular
                 //Logging events
                 $rootScope.$on("$locationChangeStart", function () {
                     $rootScope.loadingStudents = true;
-                    $log.debug("$locationChangeStart fired");
+                    //$log.debug("$locationChangeStart fired");
                 });
 
                 $rootScope.$on("$routeChangeStart", function () {
-                    $log.debug("$routeChangeStart fired");
+                    //$log.debug("$routeChangeStart fired");
                 });
 
                 $rootScope.$on("$locationChangeSuccess", function () {
-                    $log.debug("$locationChangeSuccess fired");
+                    //$log.debug("$locationChangeSuccess fired");
                 });
 
                 $rootScope.$on("$routeChangeSuccess", function () {
-                    $log.debug("$routeChangeSuccess fired");
+                    //$log.debug("$routeChangeSuccess fired");
                     $rootScope.loadingStudents = false;
                 });
 
